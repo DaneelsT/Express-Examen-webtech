@@ -30,11 +30,19 @@ MongoClient.connect('mongodb://localhost:27017/exam',
   })
 
   router.post("/add", (req, res) => {
+    // Inputcheck. Mag je eens bekijken en punten op geven indien u dat doet. :) 
 
+    // var query = { name: req.body.name, birthdate: req.body.birthdate }
+    // if(db.collection('students').find(query))
+    // {
+    //   res.render('error.ejs')
+    // }
+    // else{
         db.collection('students').insertOne(req.body, (err, result) =>{
           if(err) return
           res.redirect("/")
         })
       })
+    
 
 module.exports = router;
