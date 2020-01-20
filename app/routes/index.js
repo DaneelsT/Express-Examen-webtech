@@ -31,17 +31,10 @@ MongoClient.connect('mongodb://localhost:27017/exam',
 
   router.post("/add", (req, res) => {
 
-    var query = { name: req.body.name }
-    db.collection('students').findOne(query, (err, result) => {
-      if (true) {
         db.collection('students').insertOne(req.body, (err, result) =>{
           if(err) return
           res.redirect("/")
         })
-      }
-      if (result != '')
-          res.render('error.ejs')
-    });
-  })
+      })
 
 module.exports = router;
