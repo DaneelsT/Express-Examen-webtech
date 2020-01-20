@@ -21,4 +21,18 @@ MongoClient.connect('mongodb://localhost:27017/exam',
     })
   })
 
+  router.get("/add", (req,res) => {
+    db.collection('students').find().toArray((err, result) => {
+      if (err) return
+      res.render('add.ejs', {})
+    })
+  })
+
+  router.post("/add", (req, res) => {
+    db.collection('students').insertOne(req.body, (err, result) =>{
+      if(err) return
+      res.redirect("/")
+    })
+  })
+
 module.exports = router;
