@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>students</title>
+</head>
+<body>
+   <h1>All students</h1>
+   <ul>
+   <%students.forEach(function(student){%>
+    <li>
+        <span>name:<%= student.name %></span>
+        <span>birthdate:<%= student.birthdate %></span>
+        <span>field of study:<%= student.fieldOfStudy %></span>
+    </li>
+    <%}) %>
+</ul>
+
+<!-- <a href="/index/add">add product</a>
+<a href="/index/search">search product</a> -->
+</body>
+</html>
