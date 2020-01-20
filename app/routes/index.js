@@ -15,7 +15,8 @@ MongoClient.connect('mongodb://localhost:27017/exam',
   })
 
   router.get("/", (req,res) => {
-    db.collection('students').find().toArray((err, result) => {
+    var nameSort = { name: 1 };
+    db.collection('students').find().sort(nameSort).toArray((err, result) => {
       if (err) return
       res.render('list.ejs', {students: result})
     })
@@ -29,10 +30,10 @@ MongoClient.connect('mongodb://localhost:27017/exam',
   })
 
   router.post("/add", (req, res) => {
-    db.collection('students').insertOne(req.body, (err, result) =>{
-      if(err) return
-      res.redirect("/")
-    })
+      db.collection('students').insertOne(req.body, (err, result) =>{
+        if(err) return
+        res.redirect("/")
+      })
   })
 
 module.exports = router;

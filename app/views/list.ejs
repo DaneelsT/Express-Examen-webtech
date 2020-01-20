@@ -8,11 +8,11 @@
 <body>
    <h1>All students</h1>
    <ul>
-   <%students.forEach(function(student){%>
+   <%students.forEach(function(student){ %>
     <li>
-        <span>name:<%= student.name %></span>
-        <span>birthdate:<%= student.birthdate %></span>
-        <span>field of study:<%= student.fieldOfStudy %></span>
+        <span>NAME : <%= student.name %></span></br>
+        <span>BIRTHDATE : <%= student.birthdate %></span></br>
+        <span>FIELD OF STUDY : <%= student.fieldOfStudy %></span>
     </li>
     <%}) %>
 </ul>
